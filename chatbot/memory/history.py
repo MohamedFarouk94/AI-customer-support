@@ -2,7 +2,13 @@ import os
 from datetime import datetime
 
 
+# A clean version of the chat hitory
+# To be sent to the LLM
 chat_history = []
+
+# A version of chat history including welcoming message
+# It's also incudeing all the messages even the irrelevant ones.
+# Only used to save conversation
 full_chat_history = []
 
 N = 5  # max numbers of recent messages retrieved

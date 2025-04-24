@@ -1,6 +1,3 @@
-verbosity = True
-
-
 def print_json(data):
 	if data['irrelevant']:
 		print("[thinking] The question sounds irrelevant.")
