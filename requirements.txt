@@ -1,0 +1,12 @@
+langchain_core
+langchain_community
+langchain
+langchain_groq
+python-dotenv
+pandas
+tqdm
+jupyter
+torch==2.2.0+cpu
+numpy==1.26.4
+sentence-transformers==4.1.0
+transformers==4.51.3
