@@ -1,0 +1,17 @@
+ASSISTANT: Hi! I'm here to help you in anything related to our products and policy. How can I help you?
+
+YOU: How much does a kitchen machine cost?
+
+ASSISTANT: You're welcome to ask about our kitchen machines. 
+
+You asked about the price of a kitchen machine. We have information about two kitchen machines in our data. The Cookwell Bullet Mixer Grinder (5 Jars, 3 Blades, Silver) is priced at $29.568 after a 59% discount. The Borosil Chef Delite BCH20DBB21 300-Watt Chopper (Black) is priced at $21.828 after a 27% discount.
+
+YOU: Will I get a refund if it turned defective?
+
+ASSISTANT: You're welcome to ask about our refund policy. If a kitchen machine turns defective, we have a refund policy in place. According to our data, if the problem persists after the initial burning smell issue (which is a normal occurrence and should not recur), you can contact our Brand Service Centre. 
+
+As for the refund methods, our data shows that we offer refunds through the original payment method, Amazon Gift Card, or promotional credit (if applicable).
+
+YOU: ok thank you
+
+ASSISTANT: You're welcome.

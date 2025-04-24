@@ -1,16 +1,6 @@
 verbosity = True
 
 
-def get_verbose_flag():
-	global verbosity
-	return verbosity
-
-
-def flip_verbose_flag():
-	global verbosity
-	verbosity = not verbosity
-
-
 def print_json(data):
 	if data['irrelevant']:
 		print("[thinking] The question sounds irrelevant.")
@@ -27,3 +17,8 @@ def print_json(data):
 		print(f"[thinking] Keywords for related policy docs: {data['policy-keywords']}")
 	else:
 		print(f"[thinking] The question does not need policy data.")
+
+
+def print_helping_lines():
+	print("\n[help] Type 'exit' without quotations to end the conversation.")
+	print("[help] Type 'exit-save' without quotations to end the conversation.\n")
