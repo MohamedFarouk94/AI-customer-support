@@ -4,3 +4,4 @@ __pycache__/
 vectorstores/
 .env
 products.txt
+amazon.csv
