@@ -1,16 +1,36 @@
-
 # AI Customer Support
+
+
+
 
 This is an AI-powered customer support system designed to assist users through a CLI. The project uses RAG (Retrieval-Augmented Generation) architecture, with LangChain, HuggingFaceEmbeddings, and GroqCloud API.
 
+
+
+
 ---
 
+
+
+
 ## 🚀 How to Install and Run
+
+
+
 
 Follow the steps below to set up and run the application on your local machine.
 
 
+
+
+
+
+
+
 ### 1. Create a Virtual Environment
+
+
+
 
 Inside the root folder, create a python virtual environment.
 ```bash
@@ -19,38 +39,77 @@ source venv/bin/activate  # For Linux/Mac
 venv\Scripts\activate     # For Windows
 ```
 
+
+
+
 ### 2. Install Dependencies
 Run the following bash code in the root directory.
+
+
+
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Prepare Vector Stores
 
-Run the data preprocessing steps using the Jupyter notebook:
+### 3. Prepare Your API
+- Got to [Groq](https://console.groq.com/keys) website and get a free API key.
+- Create a `.env` file in the `chatbot` folder and write in it the following:
+```bash
+GROQ_API_KEY = YOUR_KEY_HERE
+```
+
+
+### 4. Add \_\_init\_\_ files to `chatbot` subfolders
+- In `chatbot` subfolders: (`chains`, `memory`, `models`, `prompts`, `retrieval`, `verbosity`) add an empty `__init__.py` file in each folder of them.
+- This will make python consider each a package, so no need to relative imports, and also this avoids any possible import conflicts/issues. 
+
+
+### 5. Prepare Vector Stores
+
+
+
+
+Run the data preprocessing steps using the Jupyter notebook by writing this in root directory:
+
+
+
 
 ```bash
 jupyter notebook data-handling/data_handling.ipynb
 ```
 
 
+
+
+
+
+
+
 - The notebook will prepare the data and create vectorstores for products and policy.
 - An HTML version `data-handling/data_handling.html` is there for the sake of easy reading.
 
-### 5. Run the Chatbot
+
+
+
+### 6. Run the Chatbot
 Run these bash lines in the root directory.
 ```bash
-cd chatbot
-python main.py
+python chatbot/main.py
 ```
-### 6. Chat!
+### 7. Chat!
 You will see something like that. 
 ```
 ASSISTANT: Hi! I'm here to help you in anything related to our products and policy. How can I help you?
 
+
+
+
 [help] Type 'exit' without quotations to end the conversation.
-[help] Type 'exit-save' without quotations to end the conversation.
+[help] Type 'exit-save' without quotations to save and end the conversation.
+
+
 
 
 YOU:
@@ -69,21 +128,39 @@ YOU:
 [thinking] Preparing the question to get answered.
 [thinking] Answering the question.
 
+
+
+
 ```
 - When typing `exit-save` the conversation will be stored as a txt file in `chatbot/memory/saved_conversation`.
 ---
 ## 📌 Examples
-- Examples can be found in form of videos and txt files in `exampls` folder.
+- Examples can be found in form of videos and txt files in `examples` folder.
+
+
+
 
 ## 🧠 Approach Explanation
 
+
+
+
 ### `main.py`
+
+
+
 
 - As you may have noticed, this is the main file that is actually run when you run chatbot.
 - This is just the loop that runs the bot.
 - It completely deplends on the function `ask_and_answer` from `ask.py` file. 
 
+
+
+
 ### `ask.py`
+
+
+
 
 - This file contains the most important function `ask_and_answer` which implements the whole procedure for only one question.
 - It takes the user question and runs it through three chains: `first_chain`, `middle_chain` and `final_chain`.
@@ -91,9 +168,18 @@ YOU:
 - `middle_chain` is responsible for retrieving data from the vector stores that's related to the user's question.
 - `final_chain` is responsible for sending the enhanced question along with the relevant data to the LLM in order to get answered.
 
+
+
+
 <p align="center">
   <img src="https://i.imgur.com/8KIQDKI.jpeg" alt="Chains Infograph" width="250"/>
 </p>
+
+
+
+
+
+
 
 
 ### `chains/first_chain.py`
@@ -120,10 +206,10 @@ YOU:
 - `examples` contains three examples each one in form of video and txt file. 
 ---
 
+
+
+
 ## 🔮 Future Work / Possible Enhancements
-1. Migrating from ChromaDB to ElasticSearch so both semantic queries and filtering could be handled (e.g.:Recommend a laptop under $800.)
+1. Migrating from ChromaDB to Elasticsearch so both semantic queries and filtering could be handled (e.g.:Recommend a laptop under $800.)
 2. Deploying with Django, Flask or Fast API, and creating a front-end to run the program on browser.
 3. As an alternative to option #2, creating a GUI using tkinter or any similar Python library.
-
-
-
